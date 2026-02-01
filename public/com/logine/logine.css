@@ -1,3 +1,4 @@
+/* ===== Base ===== */
 .page.login-3-page {
   --gradient: linear-gradient(-35deg, #8d00ff, #365fe7);
   --muted: #8d889d;
@@ -7,7 +8,7 @@
   display: grid;
   place-items: center;
   overflow: hidden;
-  font-family: "Euclid Circular B";
+  font-family: "Euclid Circular B", sans-serif;
 }
 
 .login-3 .card {
@@ -32,9 +33,7 @@
   transition: 0.65s;
 }
 
-.login-3 .card-bg.signin {
-  translate: 100% 0;
-}
+.login-3 .card-bg.signin { translate: 100% 0; }
 
 .login-3 .hero,
 .login-3 .form {
@@ -46,27 +45,23 @@
   transition: 0.65s;
 }
 
-.login-3 .form.signup {
-  left: 50%;
-}
+.login-3 .form.signup { left: 50%; }
+.login-3 .hero.signin { left: 50%; translate: 100% 0; }
+.login-3 .hero.signin.active { translate: 0; }
+.login-3 .hero.signup { translate: -100% 0; }
+.login-3 .hero.signup.active { translate: 0; }
+.login-3 .form.active,
+.login-3 .hero.active { opacity: 1; visibility: visible; }
 
-.login-3 .hero.signin {
-  left: 50%;
-  translate: 100% 0;
-}
+.login-3 h2 { margin: 0; font-weight: 500; }
 
-.login-3 .hero.signin.active {
-  translate: 0;
-}
+/* Forms translate */
+.login-3 .form.signin { translate: -100% 0; }
+.login-3 .form.signin.active { translate: 0; }
+.login-3 .form.signup { translate: 100% 0; }
+.login-3 .form.signup.active { translate: 0; }
 
-.login-3 .hero.signup {
-  translate: -100% 0;
-}
-
-.login-3 .hero.signup.active {
-  translate: 0;
-}
-
+/* Hero Styling */
 .login-3 .hero {
   z-index: 3;
   display: flex;
@@ -79,40 +74,7 @@
   text-align: center;
   padding: 0 24px;
 }
-
-.login-3 .form.active,
-.login-3 .hero.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-.login-3 h2 {
-  margin: 0;
-  font-weight: 500;
-}
-
-.login-3 .form.signin {
-  translate: -100% 0;
-}
-
-.login-3 .form.signin.active {
-  translate: 0;
-}
-
-.login-3 .form.signup {
-  translate: 100% 0;
-}
-
-.login-3 .form.signup.active {
-  translate: 0;
-}
-
-.login-3 .hero p {
-  margin: 0 0 6px;
-  opacity: 0.75;
-  line-height: 1.45;
-}
-
+.login-3 .hero p { margin: 0 0 6px; opacity: 0.75; line-height: 1.45; }
 .login-3 .hero button {
   padding: 12px 40px;
   border-radius: 32px;
@@ -124,12 +86,9 @@
   transition: 0.3s;
   cursor: pointer;
 }
+.login-3 .hero button:hover { color: #2a449a; background: #f9f9f9; }
 
-.login-3 .hero button:hover {
-  color: #2a449a;
-  background: #f9f9f9;
-}
-
+/* Form Styling */
 .login-3 .form {
   background: inherit;
   z-index: 1;
@@ -141,25 +100,35 @@
   gap: 16px;
   padding: 32px;
 }
-
-.login-3 .form h2 {
-  font-size: 22px;
-  text-align: center;
+.login-3 .form h2 { font-size: 22px; text-align: center; }
+.login-3 .form input {
+  font-family: inherit;
+  border-radius: 10px;
+  border: 0;
+  background: #1f1b2b;
+  padding: 14px 12px;
+  color: inherit;
+  width: 100%;
+}
+.login-3 .form input::placeholder { color: #8d889d; }
+.login-3 .form button {
+  border: 0;
+  padding: 14px 0;
+  border-radius: 32px;
+  font-family: inherit;
+  color: #f9f9f9;
+  width: 160px;
+  margin-top: 10px;
+  background: var(--gradient);
 }
 
+/* SSO Buttons */
 .login-3 .sso {
   width: 100%;
   display: flex;
   justify-content: center;
   gap: 12px;
 }
-
-.login-3 .form form > a {
-  font-size: 14px;
-  margin-top: 10px;
-  color: var(--muted);
-}
-
 .login-3 .sso a {
   display: grid;
   place-items: center;
@@ -170,42 +139,54 @@
   font-size: 16px;
 }
 
-.login-3 .form form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  width: 100%;
+/* Links */
+.login-3 .form form > a { font-size: 14px; margin-top: 10px; color: var(--muted); }
+.login-3 .form form { display: flex; flex-direction: column; align-items: center; gap: 12px; width: 100%; }
+.login-3 .form p { margin: 0 0 -8px; text-align: center; color: var(--muted); font-size: 12px; }
+
+/* ==================== MEDIA QUERIES ==================== */
+
+/* Medium screens (Tablet) */
+@media (max-width: 1023px) {
+  .login-3 .card { width: 520px; height: 400px; }
+  .login-3 .hero,
+  .login-3 .form { width: 60%; }
+  .login-3 .card-bg { width: 60%; }
 }
 
-.login-3 .form p {
-  margin: 0 0 -8px;
-  text-align: center;
-  color: var(--muted);
-  font-size: 12px;
-}
+/* Small screens (Mobile) */
+@media (max-width: 767px) {
+  .login-3 .card {
+    width: 90%;
+    height: auto;
+    min-height: 500px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+  }
 
-.login-3 .form input {
-  font-family: inherit;
-  border-radius: 10px;
-  border: 0;
-  background: #1f1b2b;
-  padding: 14px 12px;
-  color: inherit;
-  width: 100%;
-}
+  /* Background */
+  .login-3 .card-bg {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    border-radius: 12px 12px 0 0;
+    translate: 0 0;
+  }
 
-.login-3 .form input::placeholder {
-  color: #8d889d;
-}
+  /* Hero and Form stacked vertically */
+  .login-3 .hero,
+  .login-3 .form {
+    position: relative;
+    width: 100%;
+    height: auto;
+    translate: 0 0;
+    opacity: 1 !important;
+    visibility: visible !important;
+    padding: 16px 12px;
+  }
 
-.login-3 .form button {
-  border: 0;
-  padding: 14px 0;
-  border-radius: 32px;
-  font-family: inherit;
-  color: #f9f9f9;
-  width: 160px;
-  margin-top: 10px;
-  background: var(--gradient);
+  .login-3 .hero { gap: 12px; }
+  .login-3 .form { padding: 16px; gap: 12px; }
+  .login-3 .form button { width: 100%; }
 }

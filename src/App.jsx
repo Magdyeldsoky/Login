@@ -3,6 +3,7 @@ const App = () => {
   return (
     <div>
       <Login3 />
+      <h1>Hello World</h1>
     </div>
   );
 };
